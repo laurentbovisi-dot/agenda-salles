@@ -12,6 +12,7 @@ import { etablissement, horaires, praticiens, salles } from '../config.js'
 import { formatHeure, joursFermes } from '../dates.js'
 import { nomDuJour } from '../i18n.js'
 import { nombreReservationsDuJour } from '../reservations.js'
+import { initiales, nomComplet } from '../praticiens.js'
 
 const { t } = useI18n()
 
@@ -36,16 +37,6 @@ const lignesHoraires = computed(() => {
   }
   return lignes
 })
-
-// Initiales d'un praticien, pour son avatar (ex. "AC" pour Anne-Laure Chappuis)
-function initiales(praticien) {
-  return praticien.prenom[0] + praticien.nom[0]
-}
-
-// Nom complet avec le titre éventuel (ex. "Dre Anne-Laure Chappuis")
-function nomComplet(praticien) {
-  return [praticien.titre, praticien.prenom, praticien.nom].filter(Boolean).join(' ')
-}
 
 // Salles avec leur nombre de réservations du jour
 const sallesDuJour = salles.map((salle) => ({

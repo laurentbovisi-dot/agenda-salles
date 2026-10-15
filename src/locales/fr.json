@@ -117,5 +117,43 @@
       "déc."
     ],
     "dateLongue": "{jour} {numero} {mois} {annee}"
+  },
+  "reservation": {
+    "nouvelle": "Nouvelle réservation",
+    "titreFormulaire": "Nouvelle réservation",
+    "details": "Réservation",
+    "salle": "Salle",
+    "date": "Date",
+    "heureDebut": "Heure de début",
+    "duree": "Durée",
+    "minutes": "{n} min",
+    "praticien": "Praticien",
+    "type": "Type",
+    "patientNom": "Nom du patient",
+    "patientPrenom": "Prénom du patient",
+    "motif": "Motif",
+    "choisir": "Choisir…",
+    "facultatif": "facultatif",
+    "enregistrer": "Enregistrer",
+    "annuler": "Annuler",
+    "supprimer": "Supprimer",
+    "fermer": "Fermer",
+    "horaire": "{debut} – {fin}",
+    "reserverCreneau": "Réserver {salle} à {heure}",
+    "enregistree": "Réservation enregistrée",
+    "supprimee": "Réservation supprimée",
+    "types": {
+      "consultation": "Consultation",
+      "examen": "Examen",
+      "reunion": "Réunion"
+    },
+    "erreurs": {
+      "champsObligatoires": "Veuillez remplir tous les champs obligatoires.",
+      "jourFerme": "Le centre est fermé ce jour-là.",
+      "horsHoraires": "La réservation dépasse l'heure de fermeture ({heure}).",
+      "salleOccupee": "Cette salle est déjà réservée sur ce créneau.",
+      "praticienOccupe": "Ce praticien a déjà un rendez-vous sur ce créneau."
+    },
+    "patient": "Patient"
   }
 }

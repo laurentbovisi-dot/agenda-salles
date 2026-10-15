@@ -46,13 +46,13 @@ export function dateIso(date) {
 }
 
 // Convertit "08:30" en nombre de minutes depuis minuit (510)
-function enMinutes(texte) {
+export function enMinutes(texte) {
   const [h, m] = texte.split(':').map(Number)
   return h * 60 + m
 }
 
 // Convertit un nombre de minutes depuis minuit (510) en "08:30"
-function enTexte(minutes) {
+export function enTexte(minutes) {
   const h = String(Math.floor(minutes / 60)).padStart(2, '0')
   const m = String(minutes % 60).padStart(2, '0')
   return `${h}:${m}`

@@ -117,5 +117,43 @@
       "Dez."
     ],
     "dateLongue": "{jour}, {numero}. {mois} {annee}"
+  },
+  "reservation": {
+    "nouvelle": "Neue Reservation",
+    "titreFormulaire": "Neue Reservation",
+    "details": "Reservation",
+    "salle": "Raum",
+    "date": "Datum",
+    "heureDebut": "Beginn",
+    "duree": "Dauer",
+    "minutes": "{n} Min.",
+    "praticien": "Fachperson",
+    "type": "Art",
+    "patientNom": "Name des Patienten",
+    "patientPrenom": "Vorname des Patienten",
+    "motif": "Grund",
+    "choisir": "Auswählen…",
+    "facultatif": "optional",
+    "enregistrer": "Speichern",
+    "annuler": "Abbrechen",
+    "supprimer": "Löschen",
+    "fermer": "Schliessen",
+    "horaire": "{debut} – {fin}",
+    "reserverCreneau": "{salle} um {heure} reservieren",
+    "enregistree": "Reservation gespeichert",
+    "supprimee": "Reservation gelöscht",
+    "types": {
+      "consultation": "Konsultation",
+      "examen": "Untersuchung",
+      "reunion": "Sitzung"
+    },
+    "erreurs": {
+      "champsObligatoires": "Bitte füllen Sie alle Pflichtfelder aus.",
+      "jourFerme": "Das Zentrum ist an diesem Tag geschlossen.",
+      "horsHoraires": "Die Reservation dauert über die Schliessungszeit ({heure}) hinaus.",
+      "salleOccupee": "Dieser Raum ist zu dieser Zeit bereits reserviert.",
+      "praticienOccupe": "Diese Fachperson hat zu dieser Zeit bereits einen Termin."
+    },
+    "patient": "Patient/in"
   }
 }

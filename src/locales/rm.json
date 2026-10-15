@@ -117,5 +117,43 @@
       "dec."
     ],
     "dateLongue": "{jour}, {numero} {mois} {annee}"
+  },
+  "reservation": {
+    "nouvelle": "Nova reservaziun",
+    "titreFormulaire": "Nova reservaziun",
+    "details": "Reservaziun",
+    "salle": "Stanza",
+    "date": "Data",
+    "heureDebut": "Ura da cumenzament",
+    "duree": "Durada",
+    "minutes": "{n} min",
+    "praticien": "Spezialist",
+    "type": "Tip",
+    "patientNom": "Num dal pazient",
+    "patientPrenom": "Prenum dal pazient",
+    "motif": "Motiv",
+    "choisir": "Tscherner…",
+    "facultatif": "facultativ",
+    "enregistrer": "Memorisar",
+    "annuler": "Interrumper",
+    "supprimer": "Stizzar",
+    "fermer": "Serrar",
+    "horaire": "{debut} – {fin}",
+    "reserverCreneau": "Reservar {salle} a las {heure}",
+    "enregistree": "Reservaziun memorisada",
+    "supprimee": "Reservaziun stizzada",
+    "types": {
+      "consultation": "Consultaziun",
+      "examen": "Examinaziun",
+      "reunion": "Sesida"
+    },
+    "erreurs": {
+      "champsObligatoires": "Emplenai per plaschair tut ils champs obligatorics.",
+      "jourFerme": "Il center è serrà quest di.",
+      "horsHoraires": "La reservaziun dura sur l'ura da serrar ({heure}).",
+      "salleOccupee": "Questa stanza è gia reservada en quest temp.",
+      "praticienOccupe": "Quest spezialist ha gia in termin en quest temp."
+    },
+    "patient": "Pazient"
   }
 }

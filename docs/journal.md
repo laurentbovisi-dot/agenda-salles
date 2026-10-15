@@ -10,6 +10,26 @@ Chaque entrée suit ce format :
 
 ---
 
+## 2026-10-15 — Changement : formulaire de réservation et rendez-vous dans la grille
+
+- **Description** : on peut réserver une salle depuis le bouton « Nouvelle réservation » ou en cliquant sur une case libre de la grille (salle, date et heure pré-remplies). Champs : salle, date (dimanches désactivés), heure de début (créneaux du jour choisi), durée (30, 60 ou 90 min), praticien (avec sa spécialité), type (consultation, examen, réunion), nom et prénom du patient (masqués pour une réunion, et jamais enregistrés dans ce cas), motif (facultatif). Les rendez-vous s'affichent dans la grille sur toute leur durée, avec le praticien, le patient (ou « Réunion ») et l'horaire. Un clic sur un rendez-vous ouvre ses détails avec un bouton « Supprimer ».
+- **Validation** (message en rouge dans le formulaire) : champs obligatoires, jour de fermeture, dépassement de l'heure de fermeture, salle déjà réservée sur le créneau, praticien déjà occupé sur le créneau (même dans une autre salle).
+- **Détails** :
+  - `src/config.js` : ajout de `durees` et `typesRendezVous` (une couleur par type, sans rouge : consultation vert sauge, examen bleu, réunion gris taupe).
+  - `src/icones.js` : icônes Lucide des types (Stethoscope, Microscope, Users).
+  - `src/reservations.js` : ajout, suppression, réservations d'un jour, heure de fin, vérification avant enregistrement.
+  - `src/praticiens.js` : nom complet et initiales (partagés entre l'accueil et l'agenda).
+  - Nouveaux composants `FormulaireReservation.vue` et `BlocRendezVous.vue`.
+  - Messages de confirmation (Toast PrimeVue) après enregistrement et suppression.
+  - Le bouton « Supprimer » n'est pas rouge, puisque le rouge est réservé aux erreurs.
+  - Testé dans Chromium : pré-remplissage, les 4 erreurs, réunion sans champs patient, affichage sur 1 à 3 lignes, suppression, compteur de l'accueil, traduction allemande.
+
+## 2026-10-15 — Erreur : la suppression d'une réservation effaçait les autres
+
+- **Constat** : pendant les tests, supprimer une réservation a supprimé les trois réservations du jour.
+- **Cause** : l'identifiant était `'r' + Date.now()`. Les réservations créées dans la même milliseconde (ici, avec l'horloge figée du test) recevaient le même identifiant, et la suppression retire toutes les réservations qui ont cet identifiant.
+- **Solution** : l'identifiant combine maintenant l'heure et une partie aléatoire (`nouvelIdentifiant()` dans `src/reservations.js`). Test relancé : seule la réservation choisie est supprimée.
+
 ## 2026-10-15 — Changement : grille quotidienne de l'agenda
 
 - **Description** : la page Agenda affiche une grille d'un jour : une colonne par salle (en-tête avec la fleur Lucide et une bordure à la couleur de la salle), une ligne par créneau de 30 minutes selon les horaires du jour (20 lignes en semaine, 8 le samedi). Au-dessus : boutons « jour précédent » / « jour suivant » (qui sautent les jours de fermeture), DatePicker PrimeVue (dimanches désactivés, format 17.10.2026, semaine commençant le lundi), bouton « Aujourd'hui » (désactivé si on y est déjà), et la date en toutes lettres (« samedi 17 octobre 2026 »). Un jour de fermeture affiche « Le centre est fermé ce jour-là. » au lieu de la grille.

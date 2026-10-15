@@ -117,5 +117,43 @@
       "dic"
     ],
     "dateLongue": "{jour} {numero} {mois} {annee}"
+  },
+  "reservation": {
+    "nouvelle": "Nuova prenotazione",
+    "titreFormulaire": "Nuova prenotazione",
+    "details": "Prenotazione",
+    "salle": "Sala",
+    "date": "Data",
+    "heureDebut": "Ora di inizio",
+    "duree": "Durata",
+    "minutes": "{n} min",
+    "praticien": "Professionista",
+    "type": "Tipo",
+    "patientNom": "Cognome del paziente",
+    "patientPrenom": "Nome del paziente",
+    "motif": "Motivo",
+    "choisir": "Scegli…",
+    "facultatif": "facoltativo",
+    "enregistrer": "Salva",
+    "annuler": "Annulla",
+    "supprimer": "Elimina",
+    "fermer": "Chiudi",
+    "horaire": "{debut} – {fin}",
+    "reserverCreneau": "Prenota {salle} alle {heure}",
+    "enregistree": "Prenotazione salvata",
+    "supprimee": "Prenotazione eliminata",
+    "types": {
+      "consultation": "Consultazione",
+      "examen": "Esame",
+      "reunion": "Riunione"
+    },
+    "erreurs": {
+      "champsObligatoires": "Compila tutti i campi obbligatori.",
+      "jourFerme": "Il centro è chiuso in questo giorno.",
+      "horsHoraires": "La prenotazione supera l'orario di chiusura ({heure}).",
+      "salleOccupee": "Questa sala è già prenotata in questa fascia oraria.",
+      "praticienOccupe": "Questo professionista ha già un appuntamento in questa fascia oraria."
+    },
+    "patient": "Paziente"
   }
 }

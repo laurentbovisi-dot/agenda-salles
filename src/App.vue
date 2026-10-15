@@ -3,6 +3,7 @@
 import { watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { usePrimeVue } from 'primevue/config'
+import Toast from 'primevue/toast'
 import BarreNavigation from './components/BarreNavigation.vue'
 import { traduirePrimeVue } from './localePrimeVue.js'
 
@@ -18,4 +19,6 @@ watch(locale, () => traduirePrimeVue(primevue.config, t, tm, rt), { immediate: t
   <main>
     <RouterView />
   </main>
+  <!-- Zone d'affichage des messages de confirmation -->
+  <Toast position="bottom-right" />
 </template>

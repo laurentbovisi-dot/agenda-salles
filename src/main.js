@@ -2,6 +2,7 @@
 import { createApp } from 'vue'
 import PrimeVue from 'primevue/config'
 import Tooltip from 'primevue/tooltip'
+import ToastService from 'primevue/toastservice'
 import 'primeicons/primeicons.css'
 import './style.css'
 
@@ -22,6 +23,9 @@ app.use(PrimeVue, {
     options: { darkModeSelector: false }
   }
 })
+// Messages de confirmation (Toast)
+app.use(ToastService)
+
 // Infobulles (v-tooltip) sur les boutons
 app.directive('tooltip', Tooltip)
 
