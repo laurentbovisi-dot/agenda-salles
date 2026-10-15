@@ -21,14 +21,11 @@ export const salles = [
 
 // Horaires d'ouverture.
 // Les jours sont numérotés comme en JavaScript : 0 = dimanche, 1 = lundi, ..., 6 = samedi.
-// Un jour absent de cette liste est un jour de fermeture.
+// Un jour absent de cette liste est un jour de fermeture (ici le dimanche).
 export const horaires = [
   { jours: [1, 2, 3, 4, 5], ouverture: '08:00', fermeture: '18:00' },
   { jours: [6], ouverture: '08:00', fermeture: '12:00' }
 ]
-
-// Jours de fermeture, affichés dans la liste des horaires
-export const joursFermes = [0]
 
 // Durée d'un créneau de réservation, en minutes
 export const dureeCreneau = 30
@@ -45,10 +42,10 @@ export const praticiens = [
   { id: 'favre', titre: '', prenom: 'Nicolas', nom: 'Favre', langues: ['fr', 'rm'] }
 ]
 
-// Langues de l'interface : code vue-i18n et format suisse des dates
+// Langues de l'interface (code vue-i18n et nom affiché dans le sélecteur)
 export const languesInterface = [
-  { code: 'fr', libelle: 'Français', format: 'fr-CH' },
-  { code: 'de', libelle: 'Deutsch', format: 'de-CH' },
-  { code: 'it', libelle: 'Italiano', format: 'it-CH' },
-  { code: 'rm', libelle: 'Rumantsch', format: 'rm-CH' }
+  { code: 'fr', libelle: 'Français' },
+  { code: 'de', libelle: 'Deutsch' },
+  { code: 'it', libelle: 'Italiano' },
+  { code: 'rm', libelle: 'Rumantsch' }
 ]

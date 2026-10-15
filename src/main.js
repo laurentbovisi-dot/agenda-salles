@@ -1,6 +1,7 @@
 // Point d'entrée de l'application
 import { createApp } from 'vue'
 import PrimeVue from 'primevue/config'
+import Tooltip from 'primevue/tooltip'
 import 'primeicons/primeicons.css'
 import './style.css'
 
@@ -21,6 +22,8 @@ app.use(PrimeVue, {
     options: { darkModeSelector: false }
   }
 })
+// Infobulles (v-tooltip) sur les boutons
+app.directive('tooltip', Tooltip)
 
 document.documentElement.lang = i18n.global.locale.value
 app.mount('#app')

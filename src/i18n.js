@@ -39,9 +39,24 @@ export function changerLangue(code) {
   }
 }
 
-// Renvoie le format suisse (ex. "fr-CH") de la langue actuelle,
-// à utiliser pour afficher les dates et les heures
-export function formatLocal() {
-  const code = i18n.global.locale.value
-  return languesInterface.find((l) => l.code === code).format
+// --- Dates en toutes lettres ---
+// Les noms des jours et des mois sont dans les fichiers de traduction (section "dates"),
+// car les navigateurs ne connaissent pas tous le romanche (Chromium affichait de l'anglais).
+
+const t = i18n.global.t
+
+// Nom d'un jour de la semaine (0 = dimanche), ex. "lundi"
+export function nomDuJour(numero) {
+  return t(`dates.jours.${numero}`)
+}
+
+// Date en toutes lettres, selon le format suisse de la langue
+// ex. "samedi 17 octobre 2026" (fr) ou "Samstag, 17. Oktober 2026" (de)
+export function formatDateLongue(date) {
+  return t('dates.dateLongue', {
+    jour: nomDuJour(date.getDay()),
+    numero: date.getDate(),
+    mois: t(`dates.mois.${date.getMonth()}`),
+    annee: date.getFullYear()
+  })
 }

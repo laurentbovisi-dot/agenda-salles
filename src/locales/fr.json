@@ -16,7 +16,22 @@
   },
   "agenda": {
     "titre": "Agenda des salles",
-    "bientot": "L'agenda de réservation sera bientôt disponible."
+    "choisirDate": "Choisir une date",
+    "precedent": "Jour précédent",
+    "suivant": "Jour suivant",
+    "aujourdhui": "Aujourd'hui",
+    "heure": "Heure",
+    "ferme": "Le centre est fermé ce jour-là.",
+    "calendrier": {
+      "effacer": "Effacer",
+      "moisPrecedent": "Mois précédent",
+      "moisSuivant": "Mois suivant",
+      "anneePrecedente": "Année précédente",
+      "anneeSuivante": "Année suivante",
+      "choisirMois": "Choisir le mois",
+      "choisirAnnee": "Choisir l'année",
+      "semaine": "Sem."
+    }
   },
   "pied": {
     "demo": "Démonstration – données fictives"
@@ -53,5 +68,54 @@
       "specialite": "Infirmier",
       "cv": "Diplômé de l'Institut La Source, soins ambulatoires et vaccinations."
     }
+  },
+  "dates": {
+    "jours": [
+      "dimanche",
+      "lundi",
+      "mardi",
+      "mercredi",
+      "jeudi",
+      "vendredi",
+      "samedi"
+    ],
+    "joursCourts": [
+      "di",
+      "lu",
+      "ma",
+      "me",
+      "je",
+      "ve",
+      "sa"
+    ],
+    "mois": [
+      "janvier",
+      "février",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "août",
+      "septembre",
+      "octobre",
+      "novembre",
+      "décembre"
+    ],
+    "moisCourts": [
+      "janv.",
+      "févr.",
+      "mars",
+      "avr.",
+      "mai",
+      "juin",
+      "juil.",
+      "août",
+      "sept.",
+      "oct.",
+      "nov.",
+      "déc."
+    ],
+    "dateLongue": "{jour} {numero} {mois} {annee}"
   }
 }

@@ -16,7 +16,22 @@
   },
   "agenda": {
     "titre": "Agenda delle sale",
-    "bientot": "L'agenda delle prenotazioni sarà presto disponibile."
+    "choisirDate": "Scegli una data",
+    "precedent": "Giorno precedente",
+    "suivant": "Giorno successivo",
+    "aujourdhui": "Oggi",
+    "heure": "Ora",
+    "ferme": "Il centro è chiuso in questo giorno.",
+    "calendrier": {
+      "effacer": "Cancella",
+      "moisPrecedent": "Mese precedente",
+      "moisSuivant": "Mese successivo",
+      "anneePrecedente": "Anno precedente",
+      "anneeSuivante": "Anno successivo",
+      "choisirMois": "Scegli il mese",
+      "choisirAnnee": "Scegli l'anno",
+      "semaine": "Sett."
+    }
   },
   "pied": {
     "demo": "Dimostrazione – dati fittizi"
@@ -53,5 +68,54 @@
       "specialite": "Infermiere",
       "cv": "Diplomato all'Institut La Source, cure ambulatoriali e vaccinazioni."
     }
+  },
+  "dates": {
+    "jours": [
+      "domenica",
+      "lunedì",
+      "martedì",
+      "mercoledì",
+      "giovedì",
+      "venerdì",
+      "sabato"
+    ],
+    "joursCourts": [
+      "do",
+      "lu",
+      "ma",
+      "me",
+      "gi",
+      "ve",
+      "sa"
+    ],
+    "mois": [
+      "gennaio",
+      "febbraio",
+      "marzo",
+      "aprile",
+      "maggio",
+      "giugno",
+      "luglio",
+      "agosto",
+      "settembre",
+      "ottobre",
+      "novembre",
+      "dicembre"
+    ],
+    "moisCourts": [
+      "gen",
+      "feb",
+      "mar",
+      "apr",
+      "mag",
+      "giu",
+      "lug",
+      "ago",
+      "set",
+      "ott",
+      "nov",
+      "dic"
+    ],
+    "dateLongue": "{jour} {numero} {mois} {annee}"
   }
 }

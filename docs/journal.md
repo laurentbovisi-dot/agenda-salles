@@ -10,6 +10,22 @@ Chaque entrée suit ce format :
 
 ---
 
+## 2026-10-15 — Changement : grille quotidienne de l'agenda
+
+- **Description** : la page Agenda affiche une grille d'un jour : une colonne par salle (en-tête avec la fleur Lucide et une bordure à la couleur de la salle), une ligne par créneau de 30 minutes selon les horaires du jour (20 lignes en semaine, 8 le samedi). Au-dessus : boutons « jour précédent » / « jour suivant » (qui sautent les jours de fermeture), DatePicker PrimeVue (dimanches désactivés, format 17.10.2026, semaine commençant le lundi), bouton « Aujourd'hui » (désactivé si on y est déjà), et la date en toutes lettres (« samedi 17 octobre 2026 »). Un jour de fermeture affiche « Le centre est fermé ce jour-là. » au lieu de la grille.
+- **Détails** :
+  - Nouveau `src/dates.js` : horaires du jour, jours de fermeture (calculés depuis `horaires`, donc `joursFermes` a été retiré de `config.js`), jour ouvert précédent/suivant, liste des créneaux.
+  - Nouveau `src/localePrimeVue.js` : traduction du calendrier PrimeVue, appliquée dans `App.vue` à chaque changement de langue.
+  - Infobulles PrimeVue (`v-tooltip`) enregistrées dans `main.js`.
+  - La page Agenda est chargée à la demande (`import()` dans `router.js`) ; le seuil d'alerte de taille de Vite est relevé à 600 ko (Vue + PrimeVue + vue-i18n ≈ 500 ko, 130 ko compressés : rien d'anormal après analyse).
+  - Testé dans Chromium avec une date simulée : samedi → suivant = lundi, lundi → précédent = samedi, dimanche grisé dans le calendrier, dimanche affiché comme fermé, changement de langue en direct, affichage mobile (la grille défile horizontalement).
+
+## 2026-10-15 — Erreur : dates en anglais en romanche, virgule en trop en français
+
+- **Constat** : avec `Intl.DateTimeFormat`, la date française sortait « samedi, 17 octobre 2026 » (avec une virgule), et en romanche tout s'affichait en anglais (« Wednesday, October 21, 2026 »), y compris les horaires de la page d'accueil.
+- **Cause** : Chromium n'inclut pas les données de langue du romanche (`rm-CH`) et se rabat sur l'anglais (Node.js, lui, les connaît : le problème n'apparaît que dans le navigateur).
+- **Solution** : les noms des jours et des mois, ainsi que le modèle de date longue de chaque langue (`dates.dateLongue`), sont maintenant dans les fichiers de traduction (section `dates`). `formatDateLongue()` et `nomDuJour()` sont dans `src/i18n.js`. Les heures restent au format 24 h « 08:30 », identique dans les 4 langues. Le champ `format` (fr-CH…) de `languesInterface` dans `config.js`, devenu inutile, a été retiré.
+
 ## 2026-10-15 — Erreur : premier déploiement GitHub Pages refusé
 
 - **Description** : la première exécution de l'action « Déploiement GitHub Pages » a compilé le site sans problème (étape `build` réussie), mais l'étape `deploy` a échoué avec `HttpError: Not Found` (404, « Ensure GitHub Pages has been enabled »).

@@ -16,7 +16,22 @@
   },
   "agenda": {
     "titre": "Agenda da las stanzas",
-    "bientot": "L'agenda da reservaziun vegn ad esser disponibla prest."
+    "choisirDate": "Tscherner ina data",
+    "precedent": "Di precedent",
+    "suivant": "Di suandant",
+    "aujourdhui": "Oz",
+    "heure": "Ura",
+    "ferme": "Il center è serrà quest di.",
+    "calendrier": {
+      "effacer": "Stizzar",
+      "moisPrecedent": "Mais precedent",
+      "moisSuivant": "Mais suandant",
+      "anneePrecedente": "Onn precedent",
+      "anneeSuivante": "Onn suandant",
+      "choisirMois": "Tscherner il mais",
+      "choisirAnnee": "Tscherner l'onn",
+      "semaine": "Emna"
+    }
   },
   "pied": {
     "demo": "Demonstraziun – datas fictivas"
@@ -53,5 +68,54 @@
       "specialite": "Tgirunz",
       "cv": "Diplomà a l'Institut La Source, tgira ambulanta e vaccinaziuns."
     }
+  },
+  "dates": {
+    "jours": [
+      "dumengia",
+      "glindesdi",
+      "mardi",
+      "mesemna",
+      "gievgia",
+      "venderdi",
+      "sonda"
+    ],
+    "joursCourts": [
+      "du",
+      "gl",
+      "ma",
+      "me",
+      "gi",
+      "ve",
+      "so"
+    ],
+    "mois": [
+      "schaner",
+      "favrer",
+      "mars",
+      "avrigl",
+      "matg",
+      "zercladur",
+      "fanadur",
+      "avust",
+      "settember",
+      "october",
+      "november",
+      "december"
+    ],
+    "moisCourts": [
+      "schan.",
+      "favr.",
+      "mars",
+      "avr.",
+      "matg",
+      "zercl.",
+      "fan.",
+      "avust",
+      "sett.",
+      "oct.",
+      "nov.",
+      "dec."
+    ],
+    "dateLongue": "{jour}, {numero} {mois} {annee}"
   }
 }

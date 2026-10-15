@@ -8,27 +8,14 @@ import Avatar from 'primevue/avatar'
 import Tag from 'primevue/tag'
 import { Flower } from '@lucide/vue'
 import PiedDePage from '../components/PiedDePage.vue'
-import { etablissement, horaires, joursFermes, praticiens, salles } from '../config.js'
-import { formatLocal } from '../i18n.js'
+import { etablissement, horaires, praticiens, salles } from '../config.js'
+import { formatHeure, joursFermes } from '../dates.js'
+import { nomDuJour } from '../i18n.js'
 import { nombreReservationsDuJour } from '../reservations.js'
 
-const { t, locale } = useI18n()
+const { t } = useI18n()
 
 const logo = `${import.meta.env.BASE_URL}logo.png`
-
-// Nom d'un jour de la semaine dans la langue actuelle (0 = dimanche).
-// Le 7 janvier 2024 était un dimanche : on part de cette date.
-function nomDuJour(numero) {
-  const date = new Date(2024, 0, 7 + numero)
-  return new Intl.DateTimeFormat(formatLocal(), { weekday: 'long' }).format(date)
-}
-
-// Heure "08:00" affichée au format local suisse
-function heure(texte) {
-  const [h, m] = texte.split(':').map(Number)
-  const date = new Date(2024, 0, 1, h, m)
-  return new Intl.DateTimeFormat(formatLocal(), { hour: '2-digit', minute: '2-digit' }).format(date)
-}
 
 // Jours d'une plage : "lundi – vendredi" ou "samedi"
 function nomDesJours(jours) {
@@ -39,11 +26,9 @@ function nomDesJours(jours) {
 
 // Lignes du tableau des horaires (recalculées quand la langue change)
 const lignesHoraires = computed(() => {
-  // "locale.value" est lu ici pour que Vue recalcule la liste au changement de langue
-  locale.value
   const lignes = horaires.map((h) => ({
     jours: nomDesJours(h.jours),
-    heures: `${heure(h.ouverture)} – ${heure(h.fermeture)}`,
+    heures: `${formatHeure(h.ouverture)} – ${formatHeure(h.fermeture)}`,
     ferme: false
   }))
   for (const jour of joursFermes) {

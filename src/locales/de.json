@@ -16,7 +16,22 @@
   },
   "agenda": {
     "titre": "Raumagenda",
-    "bientot": "Die Reservationsagenda ist bald verfügbar."
+    "choisirDate": "Datum wählen",
+    "precedent": "Vorheriger Tag",
+    "suivant": "Nächster Tag",
+    "aujourdhui": "Heute",
+    "heure": "Uhrzeit",
+    "ferme": "Das Zentrum ist an diesem Tag geschlossen.",
+    "calendrier": {
+      "effacer": "Löschen",
+      "moisPrecedent": "Vorheriger Monat",
+      "moisSuivant": "Nächster Monat",
+      "anneePrecedente": "Vorheriges Jahr",
+      "anneeSuivante": "Nächstes Jahr",
+      "choisirMois": "Monat wählen",
+      "choisirAnnee": "Jahr wählen",
+      "semaine": "KW"
+    }
   },
   "pied": {
     "demo": "Demonstration – fiktive Daten"
@@ -53,5 +68,54 @@
       "specialite": "Pflegefachmann",
       "cv": "Abschluss am Institut La Source, ambulante Pflege und Impfungen."
     }
+  },
+  "dates": {
+    "jours": [
+      "Sonntag",
+      "Montag",
+      "Dienstag",
+      "Mittwoch",
+      "Donnerstag",
+      "Freitag",
+      "Samstag"
+    ],
+    "joursCourts": [
+      "So",
+      "Mo",
+      "Di",
+      "Mi",
+      "Do",
+      "Fr",
+      "Sa"
+    ],
+    "mois": [
+      "Januar",
+      "Februar",
+      "März",
+      "April",
+      "Mai",
+      "Juni",
+      "Juli",
+      "August",
+      "September",
+      "Oktober",
+      "November",
+      "Dezember"
+    ],
+    "moisCourts": [
+      "Jan.",
+      "Feb.",
+      "März",
+      "Apr.",
+      "Mai",
+      "Juni",
+      "Juli",
+      "Aug.",
+      "Sept.",
+      "Okt.",
+      "Nov.",
+      "Dez."
+    ],
+    "dateLongue": "{jour}, {numero}. {mois} {annee}"
   }
 }
