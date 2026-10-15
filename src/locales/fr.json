@@ -133,7 +133,6 @@
     "patientPrenom": "Prénom du patient",
     "motif": "Motif",
     "choisir": "Choisir…",
-    "facultatif": "facultatif",
     "enregistrer": "Enregistrer",
     "annuler": "Annuler",
     "supprimer": "Supprimer",
@@ -148,11 +147,13 @@
       "reunion": "Réunion"
     },
     "erreurs": {
-      "champsObligatoires": "Veuillez remplir tous les champs obligatoires.",
-      "jourFerme": "Le centre est fermé ce jour-là.",
-      "horsHoraires": "La réservation dépasse l'heure de fermeture ({heure}).",
-      "salleOccupee": "Cette salle est déjà réservée sur ce créneau.",
-      "praticienOccupe": "Ce praticien a déjà un rendez-vous sur ce créneau."
+      "champsObligatoires": "Champs obligatoires à remplir : {champs}.",
+      "jourFerme": "Le centre est fermé le {jour} : choisissez un autre jour.",
+      "horsHoraires": "Le rendez-vous ({debut} – {fin}) sort des horaires d'ouverture de ce jour ({ouverture} – {fermeture}).",
+      "passe": "Impossible de réserver dans le passé : choisissez une date et une heure à venir.",
+      "salleOccupee": "La salle {salle} est déjà réservée de {debut} à {fin} ({praticien}).",
+      "praticienOccupe": "{praticien} a déjà un rendez-vous de {debut} à {fin} (salle {salle}).",
+      "patientOccupe": "{patient} a déjà un rendez-vous de {debut} à {fin} (salle {salle}, {praticien})."
     },
     "patient": "Patient"
   }

@@ -133,7 +133,6 @@
     "patientPrenom": "Nome del paziente",
     "motif": "Motivo",
     "choisir": "Scegli…",
-    "facultatif": "facoltativo",
     "enregistrer": "Salva",
     "annuler": "Annulla",
     "supprimer": "Elimina",
@@ -148,11 +147,13 @@
       "reunion": "Riunione"
     },
     "erreurs": {
-      "champsObligatoires": "Compila tutti i campi obbligatori.",
-      "jourFerme": "Il centro è chiuso in questo giorno.",
-      "horsHoraires": "La prenotazione supera l'orario di chiusura ({heure}).",
-      "salleOccupee": "Questa sala è già prenotata in questa fascia oraria.",
-      "praticienOccupe": "Questo professionista ha già un appuntamento in questa fascia oraria."
+      "champsObligatoires": "Campi obbligatori da compilare: {champs}.",
+      "jourFerme": "Il centro è chiuso di {jour}: scegli un altro giorno.",
+      "horsHoraires": "L'appuntamento ({debut} – {fin}) è fuori dall'orario di apertura di questo giorno ({ouverture} – {fermeture}).",
+      "passe": "Impossibile prenotare nel passato: scegli una data e un'ora future.",
+      "salleOccupee": "La sala {salle} è già prenotata dalle {debut} alle {fin} ({praticien}).",
+      "praticienOccupe": "{praticien} ha già un appuntamento dalle {debut} alle {fin} (sala {salle}).",
+      "patientOccupe": "{patient} ha già un appuntamento dalle {debut} alle {fin} (sala {salle}, {praticien})."
     },
     "patient": "Paziente"
   }

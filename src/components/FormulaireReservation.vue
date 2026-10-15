@@ -14,9 +14,9 @@ import Button from 'primevue/button'
 import Message from 'primevue/message'
 import { Flower } from '@lucide/vue'
 import { salles, praticiens, durees, typesRendezVous } from '../config.js'
-import { creneauxDuJour, dateIso, joursFermes } from '../dates.js'
-import { ajouterReservation, verifierReservation } from '../reservations.js'
-import { nomComplet } from '../praticiens.js'
+import { aujourdhui, creneauxDuJour, dateIso, joursFermes } from '../dates.js'
+import { ajouterReservation, heureFin, verifierReservation } from '../reservations.js'
+import { nomComplet, trouverPraticien } from '../praticiens.js'
 import { iconesTypes } from '../icones.js'
 
 // "visible" : fenêtre ouverte ou fermée (utilisé avec v-model:visible)
@@ -31,13 +31,16 @@ const { t } = useI18n()
 
 // Valeurs du formulaire
 const formulaire = ref({})
-// Message d'erreur affiché en rouge (null s'il n'y en a pas)
-const erreur = ref(null)
+// Messages d'erreur affichés en rouge (liste vide s'il n'y en a pas)
+const erreurs = ref([])
+// Champs obligatoires restés vides, encadrés en rouge
+const champsVides = ref([])
 
 // À chaque ouverture, on repart d'un formulaire neuf avec les valeurs de départ
 watch(visible, (ouvert) => {
   if (!ouvert) return
-  erreur.value = null
+  erreurs.value = []
+  champsVides.value = []
   formulaire.value = {
     salleId: props.depart.salleId ?? null,
     date: props.depart.date ?? null,
@@ -82,6 +85,51 @@ const avecPatient = computed(
   () => typesRendezVous.find((type) => type.id === formulaire.value.type)?.patient ?? true
 )
 
+// Nom affiché de chaque champ, pour la liste des champs obligatoires manquants
+const nomsDesChamps = {
+  salleId: 'reservation.salle',
+  date: 'reservation.date',
+  debut: 'reservation.heureDebut',
+  duree: 'reservation.duree',
+  praticienId: 'reservation.praticien',
+  type: 'reservation.type',
+  patientNom: 'reservation.patientNom',
+  patientPrenom: 'reservation.patientPrenom',
+  motif: 'reservation.motif'
+}
+
+// Transforme une erreur renvoyée par verifierReservation() en message clair
+function messageErreur(erreur) {
+  const cle = `reservation.erreurs.${erreur.cle}`
+  if (erreur.cle === 'champsObligatoires') {
+    return t(cle, { champs: erreur.champs.map((champ) => t(nomsDesChamps[champ])).join(', ') })
+  }
+  if (erreur.cle === 'jourFerme') {
+    return t(cle, { jour: t(`dates.jours.${erreur.jour}`) })
+  }
+  if (erreur.cle === 'horsHoraires') {
+    return t(cle, erreur)
+  }
+  if (erreur.reservation) {
+    // Conflit avec une réservation existante : on la décrit
+    const autre = erreur.reservation
+    const praticien = trouverPraticien(autre.praticienId)
+    return t(cle, {
+      salle: salles.find((s) => s.id === autre.salleId)?.nom,
+      debut: autre.debut,
+      fin: heureFin(autre),
+      praticien: praticien ? nomComplet(praticien) : '',
+      patient: `${autre.patientPrenom} ${autre.patientNom}`
+    })
+  }
+  return t(cle)
+}
+
+// Vrai si ce champ obligatoire est resté vide (il est alors encadré en rouge)
+function estVide(champ) {
+  return champsVides.value.includes(champ)
+}
+
 // Validation du formulaire
 function enregistrer() {
   const f = formulaire.value
@@ -98,9 +146,10 @@ function enregistrer() {
     motif: f.motif.trim()
   }
 
-  const probleme = verifierReservation(reservation)
-  if (probleme) {
-    erreur.value = t(`reservation.erreurs.${probleme.cle}`, probleme.valeurs ?? {})
+  const problemes = verifierReservation(reservation)
+  champsVides.value = problemes.find((e) => e.cle === 'champsObligatoires')?.champs ?? []
+  if (problemes.length > 0) {
+    erreurs.value = problemes.map(messageErreur)
     return
   }
 
@@ -125,6 +174,7 @@ function enregistrer() {
         <Select
           v-model="formulaire.salleId"
           input-id="res-salle"
+          :invalid="estVide('salleId')"
           :options="salles"
           option-label="nom"
           option-value="id"
@@ -144,7 +194,9 @@ function enregistrer() {
           <DatePicker
             v-model="formulaire.date"
             input-id="res-date"
+            :invalid="estVide('date')"
             :disabled-days="joursFermes"
+            :min-date="aujourdhui()"
             :manual-input="false"
             show-icon
             icon-display="input"
@@ -155,6 +207,7 @@ function enregistrer() {
           <Select
             v-model="formulaire.debut"
             input-id="res-debut"
+            :invalid="estVide('debut')"
             :options="heuresPossibles"
             :placeholder="t('reservation.choisir')"
           />
@@ -180,6 +233,7 @@ function enregistrer() {
         <Select
           v-model="formulaire.praticienId"
           input-id="res-praticien"
+          :invalid="estVide('praticienId')"
           :options="choixPraticiens"
           option-label="libelle"
           option-value="id"
@@ -216,24 +270,29 @@ function enregistrer() {
       <div v-if="avecPatient" class="ligne">
         <div class="champ">
           <label for="res-nom">{{ t('reservation.patientNom') }}</label>
-          <InputText id="res-nom" v-model="formulaire.patientNom" autocomplete="off" />
+          <InputText id="res-nom" v-model="formulaire.patientNom" :invalid="estVide('patientNom')" autocomplete="off" />
         </div>
         <div class="champ">
           <label for="res-prenom">{{ t('reservation.patientPrenom') }}</label>
-          <InputText id="res-prenom" v-model="formulaire.patientPrenom" autocomplete="off" />
+          <InputText
+            id="res-prenom"
+            v-model="formulaire.patientPrenom"
+            :invalid="estVide('patientPrenom')"
+            autocomplete="off"
+          />
         </div>
       </div>
 
-      <!-- Motif (facultatif) -->
+      <!-- Motif -->
       <div class="champ">
-        <label for="res-motif">
-          {{ t('reservation.motif') }} <small>({{ t('reservation.facultatif') }})</small>
-        </label>
-        <Textarea id="res-motif" v-model="formulaire.motif" rows="2" auto-resize />
+        <label for="res-motif">{{ t('reservation.motif') }}</label>
+        <Textarea id="res-motif" v-model="formulaire.motif" :invalid="estVide('motif')" rows="2" auto-resize />
       </div>
 
-      <!-- Erreur de validation (en rouge) -->
-      <Message v-if="erreur" severity="error" icon="pi pi-exclamation-circle">{{ erreur }}</Message>
+      <!-- Erreurs de validation (en rouge), une par règle non respectée -->
+      <Message v-for="message in erreurs" :key="message" severity="error" icon="pi pi-exclamation-circle">
+        {{ message }}
+      </Message>
 
       <div class="boutons">
         <Button :label="t('reservation.annuler')" severity="secondary" text @click="visible = false" />

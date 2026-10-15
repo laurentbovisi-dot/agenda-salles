@@ -133,7 +133,6 @@
     "patientPrenom": "Prenum dal pazient",
     "motif": "Motiv",
     "choisir": "Tscherner…",
-    "facultatif": "facultativ",
     "enregistrer": "Memorisar",
     "annuler": "Interrumper",
     "supprimer": "Stizzar",
@@ -148,11 +147,13 @@
       "reunion": "Sesida"
     },
     "erreurs": {
-      "champsObligatoires": "Emplenai per plaschair tut ils champs obligatorics.",
-      "jourFerme": "Il center è serrà quest di.",
-      "horsHoraires": "La reservaziun dura sur l'ura da serrar ({heure}).",
-      "salleOccupee": "Questa stanza è gia reservada en quest temp.",
-      "praticienOccupe": "Quest spezialist ha gia in termin en quest temp."
+      "champsObligatoires": "Champs obligatorics che ston vegnir emplenids: {champs}.",
+      "jourFerme": "Il center è serrà la {jour}: tscherni in auter di.",
+      "horsHoraires": "Il termin ({debut} – {fin}) è ordaifer las uras d'avertura da quest di ({ouverture} – {fermeture}).",
+      "passe": "Impussibel da reservar en il passà: tscherni ina data ed ina ura en il futur.",
+      "salleOccupee": "La stanza {salle} è gia reservada da las {debut} fin las {fin} ({praticien}).",
+      "praticienOccupe": "{praticien} ha gia in termin da las {debut} fin las {fin} (stanza {salle}).",
+      "patientOccupe": "{patient} ha gia in termin da las {debut} fin las {fin} (stanza {salle}, {praticien})."
     },
     "patient": "Pazient"
   }

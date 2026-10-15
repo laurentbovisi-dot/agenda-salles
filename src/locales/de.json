@@ -133,7 +133,6 @@
     "patientPrenom": "Vorname des Patienten",
     "motif": "Grund",
     "choisir": "Auswählen…",
-    "facultatif": "optional",
     "enregistrer": "Speichern",
     "annuler": "Abbrechen",
     "supprimer": "Löschen",
@@ -148,11 +147,13 @@
       "reunion": "Sitzung"
     },
     "erreurs": {
-      "champsObligatoires": "Bitte füllen Sie alle Pflichtfelder aus.",
-      "jourFerme": "Das Zentrum ist an diesem Tag geschlossen.",
-      "horsHoraires": "Die Reservation dauert über die Schliessungszeit ({heure}) hinaus.",
-      "salleOccupee": "Dieser Raum ist zu dieser Zeit bereits reserviert.",
-      "praticienOccupe": "Diese Fachperson hat zu dieser Zeit bereits einen Termin."
+      "champsObligatoires": "Bitte füllen Sie diese Pflichtfelder aus: {champs}.",
+      "jourFerme": "Das Zentrum ist am {jour} geschlossen: Bitte wählen Sie einen anderen Tag.",
+      "horsHoraires": "Der Termin ({debut} – {fin}) liegt ausserhalb der Öffnungszeiten dieses Tages ({ouverture} – {fermeture}).",
+      "passe": "Reservationen in der Vergangenheit sind nicht möglich: Bitte wählen Sie ein künftiges Datum und eine künftige Uhrzeit.",
+      "salleOccupee": "Der Raum {salle} ist von {debut} bis {fin} bereits reserviert ({praticien}).",
+      "praticienOccupe": "{praticien} hat von {debut} bis {fin} bereits einen Termin (Raum {salle}).",
+      "patientOccupe": "{patient} hat von {debut} bis {fin} bereits einen Termin (Raum {salle}, {praticien})."
     },
     "patient": "Patient/in"
   }

@@ -10,6 +10,23 @@ Chaque entrée suit ce format :
 
 ---
 
+## 2026-10-15 — Changement : règles de validation des réservations
+
+- **Description** : avant l'enregistrement, toutes les règles sont vérifiées et **toutes** les erreurs sont affichées en même temps, chacune avec un message clair qui décrit le rendez-vous en conflit (salle, horaire, praticien) :
+  1. tous les champs sont obligatoires, motif compris, sauf nom et prénom du patient pour une réunion. Les champs vides sont nommés dans le message et encadrés en rouge ;
+  2. pas de réservation un jour de fermeture (le dimanche) ;
+  3. pas de réservation hors des horaires d'ouverture, avant l'ouverture ou qui déborde de la fermeture (ex. 17:30 + 60 min, ou samedi 11:30 + 60 min) ;
+  4. pas de réservation dans le passé : jour passé, ou heure déjà passée aujourd'hui ;
+  5. une salle ne peut pas avoir deux rendez-vous qui se chevauchent ;
+  6. un praticien ne peut pas avoir deux rendez-vous qui se chevauchent ;
+  7. un patient ne peut pas avoir deux rendez-vous qui se chevauchent : même nom et même prénom, sans tenir compte des majuscules ni des espaces (« EXEMPLE » / « marie » = « Exemple » / « Marie »). Les réunions n'ont pas de patient et ne sont donc pas concernées.
+- **Détails** :
+  - Deux rendez-vous « bout à bout » (09:00–10:00 puis 10:00–10:30) ne se chevauchent pas.
+  - `verifierReservation()` (`src/reservations.js`) renvoie maintenant une liste d'erreurs. Elle reçoit l'heure actuelle en paramètre pour pouvoir être testée.
+  - Le formulaire traduit chaque erreur (`messageErreur()` dans `FormulaireReservation.vue`). Le calendrier du formulaire grise les jours passés.
+  - Le motif n'est plus facultatif. La clé de traduction `reservation.facultatif` a été retirée.
+  - Testé : 16 cas directement sur la fonction de validation (Node.js, localStorage simulé), puis l'affichage dans Chromium, en français et en allemand.
+
 ## 2026-10-15 — Changement : formulaire de réservation et rendez-vous dans la grille
 
 - **Description** : on peut réserver une salle depuis le bouton « Nouvelle réservation » ou en cliquant sur une case libre de la grille (salle, date et heure pré-remplies). Champs : salle, date (dimanches désactivés), heure de début (créneaux du jour choisi), durée (30, 60 ou 90 min), praticien (avec sa spécialité), type (consultation, examen, réunion), nom et prénom du patient (masqués pour une réunion, et jamais enregistrés dans ce cas), motif (facultatif). Les rendez-vous s'affichent dans la grille sur toute leur durée, avec le praticien, le patient (ou « Réunion ») et l'horaire. Un clic sur un rendez-vous ouvre ses détails avec un bouton « Supprimer ».
