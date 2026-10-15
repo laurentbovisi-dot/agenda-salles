@@ -44,3 +44,5 @@
 - Chaque salle reprend la couleur de sa fleur dans le logo, en accent discret (icône, bordure de l'en-tête de colonne) : Lavande #7263a4, Tournesol #f5a539, Bleuet #467cc6, Camélia #f07988.
 - Données fictives uniquement, jamais de données patients réelles.
 - Code simple et commenté, lisible par un débutant.
+- Toutes les modifications sont faites et poussées directement sur la branche `main` (pas de branche de fonctionnalité, pas de pull request).
+- Le fichier `docs/journal.md` est mis à jour, dans le même commit, à chaque changement majeur du site, investigation ou erreur rencontrée (entrées les plus récentes en haut).
