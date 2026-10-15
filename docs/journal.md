@@ -10,6 +10,13 @@ Chaque entrée suit ce format :
 
 ---
 
+## 2026-10-15 — Erreur : premier déploiement GitHub Pages refusé
+
+- **Description** : la première exécution de l'action « Déploiement GitHub Pages » a compilé le site sans problème (étape `build` réussie), mais l'étape `deploy` a échoué avec `HttpError: Not Found` (404, « Ensure GitHub Pages has been enabled »).
+- **Cause** : GitHub Pages n'est pas encore activé sur le dépôt.
+- **Solution** : dans Settings → Pages, choisir la source « GitHub Actions », puis relancer l'action (Actions → Déploiement GitHub Pages → Re-run jobs) ou pousser un nouveau commit.
+- **Remarque** : GitHub avertit que `actions/deploy-pages@v4` cible Node.js 20, désormais déprécié (exécuté de force sous Node.js 24). Sans conséquence pour l'instant ; à mettre à jour quand une nouvelle version majeure sera publiée.
+
 ## 2026-10-15 — Changement : initialisation du projet Vue 3
 
 - **Description** : création du site Vue 3 + Vite avec PrimeVue (thème Aura, bleu marine #173855), Vue Router (mode hash), vue-i18n (fr, de, it, rm) et Lucide. Deux pages : Accueil (`/`) et Agenda (`/agenda`, contenu à venir), avec une barre de navigation commune (emblème, nom, liens, sélecteur de langue mémorisé dans localStorage).
