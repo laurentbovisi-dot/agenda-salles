@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "accueil": "Pagina principala",
+    "agenda": "Agenda",
+    "langue": "Lingua"
+  },
+  "accueil": {
+    "presentation": "Center da tgira interdisciplinar en il center da Losanna, datiers dal CHUV, accessibel cun il metro (lingia M2).",
+    "reserver": "Reservar ina stanza",
+    "horaires": "Uras d'avertura",
+    "ferme": "Serrà",
+    "equipe": "Noss team",
+    "langues": "Linguas",
+    "salles": "Nossas stanzas",
+    "reservationsDuJour": "Nagina reservaziun oz | 1 reservaziun oz | {count} reservaziuns oz"
+  },
+  "agenda": {
+    "titre": "Agenda da las stanzas",
+    "bientot": "L'agenda da reservaziun vegn ad esser disponibla prest."
+  },
+  "pied": {
+    "demo": "Demonstraziun – datas fictivas"
+  },
+  "langues": {
+    "fr": "franzos",
+    "de": "tudestg",
+    "it": "talian",
+    "en": "englais",
+    "rm": "rumantsch"
+  },
+  "praticiens": {
+    "chappuis": {
+      "specialite": "Medischina generala",
+      "cv": "Diplomada a l'Universitad da Losanna, 15 onns experientscha en il cabinet."
+    },
+    "rochat": {
+      "specialite": "Cardiologia",
+      "cv": "Scolà a Losanna ed a Berna, spezialist per la prevenziun cardiovasculara."
+    },
+    "dubuis": {
+      "specialite": "Pediatria",
+      "cv": "Scolada a Genevra, accumpogna uffants da 0 fin 16 onns."
+    },
+    "pasche": {
+      "specialite": "Dermatologia",
+      "cv": "Scolà a Losanna ed a Turitg, dermatologia generala e diagnosa precoca."
+    },
+    "cuendet": {
+      "specialite": "Fisioterapia",
+      "cv": "Diplomada a la HESAV, reabilitaziun dal sport e dal dies."
+    },
+    "favre": {
+      "specialite": "Tgirunz",
+      "cv": "Diplomà a l'Institut La Source, tgira ambulanta e vaccinaziuns."
+    }
+  }
+}

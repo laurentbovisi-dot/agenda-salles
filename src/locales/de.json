@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "accueil": "Startseite",
+    "agenda": "Agenda",
+    "langue": "Sprache"
+  },
+  "accueil": {
+    "presentation": "Interdisziplinäres Gesundheitszentrum im Herzen von Lausanne, nahe dem CHUV, mit der Metro (Linie M2) erreichbar.",
+    "reserver": "Raum reservieren",
+    "horaires": "Öffnungszeiten",
+    "ferme": "Geschlossen",
+    "equipe": "Unser Team",
+    "langues": "Sprachen",
+    "salles": "Unsere Räume",
+    "reservationsDuJour": "Heute keine Reservation | 1 Reservation heute | {count} Reservationen heute"
+  },
+  "agenda": {
+    "titre": "Raumagenda",
+    "bientot": "Die Reservationsagenda ist bald verfügbar."
+  },
+  "pied": {
+    "demo": "Demonstration – fiktive Daten"
+  },
+  "langues": {
+    "fr": "Französisch",
+    "de": "Deutsch",
+    "it": "Italienisch",
+    "en": "Englisch",
+    "rm": "Rätoromanisch"
+  },
+  "praticiens": {
+    "chappuis": {
+      "specialite": "Allgemeinmedizin",
+      "cv": "Abschluss an der Universität Lausanne, 15 Jahre Praxiserfahrung."
+    },
+    "rochat": {
+      "specialite": "Kardiologie",
+      "cv": "Ausgebildet in Lausanne und Bern, Spezialist für Herz-Kreislauf-Prävention."
+    },
+    "dubuis": {
+      "specialite": "Pädiatrie",
+      "cv": "Ausgebildet in Genf, betreut Kinder von 0 bis 16 Jahren."
+    },
+    "pasche": {
+      "specialite": "Dermatologie",
+      "cv": "Ausgebildet in Lausanne und Zürich, allgemeine Dermatologie und Früherkennung."
+    },
+    "cuendet": {
+      "specialite": "Physiotherapie",
+      "cv": "Abschluss an der HESAV, Sport- und Rückenrehabilitation."
+    },
+    "favre": {
+      "specialite": "Pflegefachmann",
+      "cv": "Abschluss am Institut La Source, ambulante Pflege und Impfungen."
+    }
+  }
+}

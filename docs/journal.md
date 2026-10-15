@@ -10,6 +10,22 @@ Chaque entrée suit ce format :
 
 ---
 
+## 2026-10-15 — Changement : initialisation du projet Vue 3
+
+- **Description** : création du site Vue 3 + Vite avec PrimeVue (thème Aura, bleu marine #173855), Vue Router (mode hash), vue-i18n (fr, de, it, rm) et Lucide. Deux pages : Accueil (`/`) et Agenda (`/agenda`, contenu à venir), avec une barre de navigation commune (emblème, nom, liens, sélecteur de langue mémorisé dans localStorage).
+- **Détails** :
+  - Accueil : bandeau (logo, présentation, bouton « Réserver une salle »), horaires lus depuis la configuration, cartes des praticiens (avatar à initiales, spécialité, CV, langues), 4 salles (icône `Flower` de Lucide à la couleur de la fleur, nombre de réservations du jour lu dans localStorage), pied de page.
+  - `src/config.js` : établissement, salles, horaires, créneaux de 30 min, praticiens, langues de l'interface.
+  - `src/locales/*.json` : tous les textes traduits, y compris spécialités et CV (clé = identifiant du praticien). Écart volontaire avec « CV dans le fichier de configuration » : les textes traduisibles restent dans les fichiers de langue.
+  - `.github/workflows/deploy.yml` : compilation et publication sur GitHub Pages à chaque push sur `main` ; `base` de Vite = `/agenda-salles/`.
+  - `npm run build` réussi ; rendu vérifié dans Chromium (bureau et mobile, français et allemand), sans erreur dans la console.
+- **À faire** : dans les réglages du dépôt (Settings → Pages), choisir « GitHub Actions » comme source, sinon le déploiement échoue. Faire relire les traductions allemandes, italiennes et surtout romanches (rédigées automatiquement).
+
+## 2026-10-15 — Investigation : versions des dépendances
+
+- **PrimeVue 5** (dernière version) n'est plus sous licence MIT : elle exige une clé de licence (licence « PrimeUI »), sans quoi un avertissement de licence peut s'afficher. **Décision** : utiliser PrimeVue 4.5 (MIT), avec `@primeuix/themes` 2.x et `primeicons` 7.x (MIT, la version 8 change aussi de licence).
+- **lucide-vue-next** est déprécié : remplacé par le paquet officiel `@lucide/vue`.
+
 ## 2026-10-15 — Changement : création du journal
 
 - **Description** : ajout de ce fichier `docs/journal.md` pour documenter l'évolution du site.

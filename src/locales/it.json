@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "accueil": "Home",
+    "agenda": "Agenda",
+    "langue": "Lingua"
+  },
+  "accueil": {
+    "presentation": "Centro di cure pluridisciplinare nel cuore di Losanna, vicino al CHUV, raggiungibile in metropolitana (linea M2).",
+    "reserver": "Prenota una sala",
+    "horaires": "Orari di apertura",
+    "ferme": "Chiuso",
+    "equipe": "Il nostro team",
+    "langues": "Lingue",
+    "salles": "Le nostre sale",
+    "reservationsDuJour": "Nessuna prenotazione oggi | 1 prenotazione oggi | {count} prenotazioni oggi"
+  },
+  "agenda": {
+    "titre": "Agenda delle sale",
+    "bientot": "L'agenda delle prenotazioni sarà presto disponibile."
+  },
+  "pied": {
+    "demo": "Dimostrazione – dati fittizi"
+  },
+  "langues": {
+    "fr": "francese",
+    "de": "tedesco",
+    "it": "italiano",
+    "en": "inglese",
+    "rm": "romancio"
+  },
+  "praticiens": {
+    "chappuis": {
+      "specialite": "Medicina generale",
+      "cv": "Laureata all'Università di Losanna, 15 anni di esperienza in studio medico."
+    },
+    "rochat": {
+      "specialite": "Cardiologia",
+      "cv": "Formato a Losanna e Berna, specialista nella prevenzione cardiovascolare."
+    },
+    "dubuis": {
+      "specialite": "Pediatria",
+      "cv": "Formata a Ginevra, segue bambini da 0 a 16 anni."
+    },
+    "pasche": {
+      "specialite": "Dermatologia",
+      "cv": "Formato a Losanna e Zurigo, dermatologia generale e screening."
+    },
+    "cuendet": {
+      "specialite": "Fisioterapia",
+      "cv": "Diplomata alla HESAV, riabilitazione sportiva e della schiena."
+    },
+    "favre": {
+      "specialite": "Infermiere",
+      "cv": "Diplomato all'Institut La Source, cure ambulatoriali e vaccinazioni."
+    }
+  }
+}

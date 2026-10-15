@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "accueil": "Accueil",
+    "agenda": "Agenda",
+    "langue": "Langue"
+  },
+  "accueil": {
+    "presentation": "Centre de soins pluridisciplinaire au cœur de Lausanne, proche du CHUV, accessible en métro (ligne M2).",
+    "reserver": "Réserver une salle",
+    "horaires": "Horaires d'ouverture",
+    "ferme": "Fermé",
+    "equipe": "Notre équipe",
+    "langues": "Langues",
+    "salles": "Nos salles",
+    "reservationsDuJour": "Aucune réservation aujourd'hui | 1 réservation aujourd'hui | {count} réservations aujourd'hui"
+  },
+  "agenda": {
+    "titre": "Agenda des salles",
+    "bientot": "L'agenda de réservation sera bientôt disponible."
+  },
+  "pied": {
+    "demo": "Démonstration – données fictives"
+  },
+  "langues": {
+    "fr": "français",
+    "de": "allemand",
+    "it": "italien",
+    "en": "anglais",
+    "rm": "romanche"
+  },
+  "praticiens": {
+    "chappuis": {
+      "specialite": "Médecine générale",
+      "cv": "Diplômée de l'Université de Lausanne, 15 ans d'expérience en cabinet."
+    },
+    "rochat": {
+      "specialite": "Cardiologie",
+      "cv": "Formé à Lausanne et Berne, spécialiste de la prévention cardiovasculaire."
+    },
+    "dubuis": {
+      "specialite": "Pédiatrie",
+      "cv": "Formée à Genève, suivi des enfants de 0 à 16 ans."
+    },
+    "pasche": {
+      "specialite": "Dermatologie",
+      "cv": "Formé à Lausanne et Zurich, dermatologie générale et dépistage."
+    },
+    "cuendet": {
+      "specialite": "Physiothérapie",
+      "cv": "Diplômée de la HESAV, rééducation du sport et du dos."
+    },
+    "favre": {
+      "specialite": "Infirmier",
+      "cv": "Diplômé de l'Institut La Source, soins ambulatoires et vaccinations."
+    }
+  }
+}
